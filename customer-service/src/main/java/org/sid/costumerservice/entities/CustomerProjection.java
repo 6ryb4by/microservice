@@ -7,4 +7,5 @@ public interface CustomerProjection {
     public Long getId();
     public String getName();
 
+
 }

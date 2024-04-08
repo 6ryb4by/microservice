@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@NoArgsConstructor
 @Data
+@Builder
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,5 +25,13 @@ public class Bill {
     private List<ProductItem> productItem;
     @Transient
     private Customer customer;
+
+    public double getTotal(){
+        double somme = 0;
+        for (ProductItem pi : productItem){
+            somme+=pi.getAmount();
+        }
+        return somme;
+    }
 
 }
